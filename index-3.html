@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Navbar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar {
+            background: #006e8fda;
+            padding: 25px 0px;
+            height: 70px;
+        }
+
+        .menu {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .menu-items li {
+            list-style: none;
+        }
+
+        .menu-items li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .menu-items {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .sub-menu-1 {
+            display: none;
+        }
+
+        .hover-me-1:hover .sub-menu-1 {
+            display: block;
+            position: absolute;
+            background: #006e8fda;
+            width: 180px;
+        }
+
+        .sub-menu-1 ul li {
+            border-bottom: 1px solid #fff;
+            padding-bottom: 10px;
+            padding-top: 15px;
+            margin-left: 10px;
+            margin-right: 15px;
+        }
+
+        .sub-menu-1 ul li:last-child {
+            border-bottom: none;
+        }
+
+        .sub-memu-2 {
+            display: none;
+        }
+
+        .hover-me-2:hover .sub-memu-2 {
+            display: block;
+            position: absolute;
+            margin-top: -32px;
+            margin-left: 155px;
+            background: #006e8fda;
+            width: 180px;
+        }
+
+        .navbar .menu .menu-items li a:hover {
+            color: red;
+        }
+
+        .pad {
+            padding-left: 5px;
+            color: #fff;
+        }
+
+        @media(max-width:1250px) {
+            .menu-items {
+                flex-direction: column;
+                padding: 0px 0px 10px 10px;
+                opacity: 0;
+                margin-top: 45px;
+            }
+
+            .navbar-h {
+                height: 450px;
+                transition: all 0.5s ease-in-out;
+            }
+
+            .show-menu {
+                opacity: 1;
+            }
+
+            .menu-items li {
+                padding-top: 20px;
+            }
+
+            .hamburger-menu {
+                position: absolute;
+                top: 16px;
+                left: 10px;
+                width: 40px;
+                height: 33px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .hamburger-menu .burger-line {
+                width: 100%;
+                height: 5px;
+                background: #fff;
+                border-radius: 5px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="hamburger-menu">
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+        </div>
+        <div class="menu">
+            <ul class="menu-items">
+                <li> <a href="#">Home</a></li>
+                <li class="hover-me-1"> <a href="#">About Us <i class="fas fa-angle-down pad"></i> </a>
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li><a href="#">Mission</a></li>
+                            <li><a href="#">Vision</a></li>
+                            <li><a href="#">Team</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="hover-me-1"> <a href="#">Services <i class="fas fa-angle-down pad"></i> </a>
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li><a href="#">Web Designing</a></li>
+                            <li class="hover-me-2"><a href="#">Marketing <i class="fas fa-angle-right pad"></i> </a>
+                                <div class="sub-memu-2">
+                                    <ul>
+                                        <li><a href="#">Laptop</a></li>
+                                        <li><a href="#">Product</a></li>
+                                        <li><a href="#">Mobile</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="hover-me-2"><a href="#">Mobile App <i class="fas fa-angle-right pad"></i> </a>
+                                <div class="sub-memu-2">
+                                    <ul>
+                                        <li><a href="#">Android App</a></li>
+                                        <li><a href="#">ios App</a></li>
+                                        <li><a href="#">Flter App</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li> <a href="#">Clients</a> </li>
+                <li> <a href="#">Inventers</a> </li>
+                <li> <a href="#">Pricing</a> </li>
+                <li> <a href="#">Training</a> </li>
+                <li> <a href="#">Contact</a> </li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        let hamburger_menu = document.querySelector('.hamburger-menu');
+        let menu_items = document.querySelector('.menu-items');
+        let navbar = document.querySelector('.navbar');
+        hamburger_menu.addEventListener('click', () => {
+            menu_items.classList.toggle('show-menu');
+            navbar.classList.toggle('navbar-h');
+        })
+    </script>
+
+</body>
+
+</html>
